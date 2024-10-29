@@ -1,4 +1,4 @@
-name: Deploy Create Short URL Lambda
+name: Deploy Lambda
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ defaults:
 
 jobs:
   terraform:
-    name: 'Deploy Create Short URL Lambda'
+    name: 'Deploy Lambda'
     runs-on: ubuntu-latest
     steps:
       # Checkout the repository to the GitHub Actions runner
