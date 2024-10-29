@@ -1,4 +1,4 @@
-﻿# API Gateway
+# API Gateway
 resource "aws_api_gateway_rest_api" "api" {
   name = "gotech_world_data"
 }
@@ -22,11 +22,11 @@ resource "aws_api_gateway_stage" "live" {
   deployment_id = aws_api_gateway_deployment.deployment.id
   rest_api_id   = aws_api_gateway_rest_api.api.id
   stage_name    = "prod"
-} 
+}
 
 resource "aws_api_gateway_method" "method" {
   authorization = "NONE"
-  http_method   = "GET" 
+  http_method   = "GET"
   resource_id   = aws_api_gateway_rest_api.api.root_resource_id
   rest_api_id   = aws_api_gateway_rest_api.api.id
 }

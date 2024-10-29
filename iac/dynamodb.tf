@@ -1,4 +1,4 @@
-﻿resource "aws_dynamodb_table" "movies" {
+resource "aws_dynamodb_table" "movies" {
   name           = "gotech_world_movies"
   billing_mode   = "PROVISIONED"
   read_capacity  = 1
@@ -20,10 +20,11 @@ resource "aws_dynamodb_table_item" "scott_pilgrim" {
     {
       ID    = { S = "1" },
       Title = { S = "Scott Pilgrim vs. the World" },
-      Genres = { SS = [
-        "Action",
-        "Comedy",
-      ]
+      Genres = {
+        SS = [
+          "Action",
+          "Comedy",
+        ]
       },
       Rating = { N = "7.5" }
     }
