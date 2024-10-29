@@ -60,4 +60,17 @@ data "aws_iam_policy_document" "lambda_policies" {
 
     resources = ["arn:aws:logs:*:*:*"]
   }
+  
+  statement {
+    effect = "Allow"
+    
+    actions = [
+      # "dynamodb:GetItem"
+      "dynamodb:Query"
+    ]
+    
+    resources = [
+      aws_dynamodb_table.movies.arn
+    ]
+  }
 }
