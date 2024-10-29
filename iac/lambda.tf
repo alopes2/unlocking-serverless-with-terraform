@@ -4,7 +4,7 @@ locals {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_file = "./lambda_init_code/index.mjs"
+  source_file = "./lambda_init_code/index.js"
   output_path = "${local.function_name}_lambda_function_payload.zip"
 }
 
