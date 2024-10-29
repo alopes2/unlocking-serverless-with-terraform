@@ -12,7 +12,7 @@ type Movie = {
 }
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    console.log("Getting first movie");
+    console.log("Getting first movie.");
 
     const client = new DynamoDBClient({});
     const docClient = DynamoDBDocumentClient.from(client);
