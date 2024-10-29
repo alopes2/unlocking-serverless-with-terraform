@@ -7,6 +7,11 @@ terraform {
       version = "~> 5.23"       # Use a version of the AWS provider that is compatible with version
     }
   }
+
+  backend "s3" {
+    bucket = "terraform-medium-api-notification"
+    key    = "gotech-world/state"
+  }
 }
 
 provider "aws" {}

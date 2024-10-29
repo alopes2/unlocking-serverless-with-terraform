@@ -9,7 +9,8 @@ resource "aws_api_gateway_deployment" "deployment" {
   triggers = {
     redeployment = sha1(jsonencode([
       aws_api_gateway_rest_api.api.root_resource_id,
-      aws_api_gateway_method.method.id
+      aws_api_gateway_method.method.id,
+      aws_api_gateway_integration.integration.id
     ]))
   }
 
@@ -46,4 +47,15 @@ resource "aws_lambda_permission" "apigw_lambda" {
   function_name = aws_lambda_function.lambda.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/${aws_api_gateway_method.method.http_method}/"
+}
+
+resource "aws_api_gateway_method_settings" "method_settings" {
+  rest_api_id = aws_api_gateway_rest_api.api.id
+  stage_name  = aws_api_gateway_stage.live.stage_name
+  method_path = "/${aws_api_gateway_method.method.http_method}"
+
+  settings {
+    throttling_burst_limit = 1
+    throttling_rate_limit  = 1
+  }
 }
