@@ -19,7 +19,7 @@ resource "aws_dynamodb_table_item" "scott_pilgrim" {
   item = jsonencode(
     {
       ID    = { S = "1" },
-      Title = { S = "Scott Pilgrim vs. the World" },
+      Title = { S = "Scott Pilgrim vs. the World." },
       Genres = {
         SS = [
           "Action",
