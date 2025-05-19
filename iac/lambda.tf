@@ -65,8 +65,8 @@ data "aws_iam_policy_document" "lambda_policies" {
     effect = "Allow"
 
     actions = [
-      "dynamodb:GetItem"
-      # "dynamodb:Query"
+      # "dynamodb:GetItem"
+      "dynamodb:Query"
     ]
 
     resources = [
